@@ -1,0 +1,42 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Main {
+
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int m=sc.nextInt();
+        int t[]=new int[m];
+        for(int i=0;i<m;i++)
+        t[i]=sc.nextInt();
+        int n=sc.nextInt();
+        Stack<Integer> s=new Stack<>();
+        ArrayList<Integer> list=new ArrayList<>();
+        int index=0,c=0;
+        for(int i=1;i<=n;i++){
+            s.push(i);
+            System.out.print("Push ");
+            if(s.peek()!=t[index]){
+                System.out.print("Pop ");
+                list.add(s.pop());
+            }
+            else if(s.peek()>t[index]){
+                System.out.print("Push ");
+                s.push(t[index]);
+                index++;
+            }
+            else
+            index++;
+            if(s.size()==m)
+            break;
+        }
+        int len=s.size();
+        while(len<m){
+            System.out.print("Push ");
+            len++;
+        }
+    }
+}
