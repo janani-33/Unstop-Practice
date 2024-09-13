@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Main {
+
+    public static void main(String[] args) {
+        Scanner s=new Scanner(System.in);
+        String str=s.next();
+        int balance=0;
+        StringBuilder cur=new StringBuilder();
+        for(char c:str.toCharArray()){
+            if(c=='R')
+            balance++;
+            else
+            balance--;
+            cur.append(c);
+            if(balance==0){
+                System.out.print("("+cur+")");
+                cur.setLength(0);
+            }
+        }
+    }
+}
